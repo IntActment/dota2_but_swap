@@ -40,6 +40,9 @@ BUTTINGS = {
 	BUYBACK_RULES = 0,                  -- 0 = normal, 1 = use buyback restrictions
 	BUYBACK_LIMIT = 1,                  -- Max amount of buybacks
 	BUYBACK_COOLDOWN = 600,             -- Cooldown for buyback
+	
+	SWAP_PROC_LIMIT = 50.0,
+	SWAP_PROC_GROW = 0.12,
 
 }
 

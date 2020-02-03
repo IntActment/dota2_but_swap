@@ -46,7 +46,7 @@ end, nil)
 LinkLuaModifier( "swapped_modifier", "modifiers/swapped_modifier", LUA_MODIFIER_MOTION_NONE )
 
 local castTable = {}
-local chance = 4.0
+local chance = 5.0
 local range = 1500.0
 
 ListenToGameEvent("dota_player_used_ability", function(keys)
@@ -58,7 +58,7 @@ ListenToGameEvent("dota_player_used_ability", function(keys)
 	local ability = casterUnit and casterUnit.FindAbilityByName and casterUnit:FindAbilityByName(abilityname) -- bugs if hero has 2 times the same ability
 	
 	if ability and ( GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS ) then
-		if not ability:IsToggle() and not ability:GetAutoCastState() and RandomFloat( 0.0, 100.0 ) < chance then
+		if not ability:IsToggle() and RandomFloat( 0.0, 100.0 ) < chance then
 			
 			if castTable[playerID] == nil then
 				castTable[playerID] = Time()
@@ -89,7 +89,7 @@ ListenToGameEvent("dota_player_used_ability", function(keys)
 			
 			-- look for 2 units
 			for u,unit in pairs(units) do
-				if not unit:HasModifier( "swapped_modifier" ) then
+				if ( ( count == 0 ) or ( targets[1]:GetTeamNumber() ~= unit:GetTeamNumber() ) ) and ( not unit:HasModifier( "swapped_modifier" ) ) then
 					--print("first found")
 					
 					table.insert(targets, unit)
@@ -106,8 +106,8 @@ ListenToGameEvent("dota_player_used_ability", function(keys)
 			
 				local dur = RandomFloat( 2.7, 6.8 )
 				castTable[playerID] = newTime
-				chance = math.min( chance + 0.15, 50.0 )
-				range = math.min( range + 35, 9000.0 )
+				chance = math.min( chance + BUTTINGS.SWAP_PROC_GROW, BUTTINGS.SWAP_PROC_LIMIT )
+				range = math.min( range + 25, 9000.0 )
 					
 				--print("both found")
 				local target1_pos = targets[1]:GetAbsOrigin()

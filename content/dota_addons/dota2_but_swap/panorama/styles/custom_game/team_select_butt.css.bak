@@ -1,8 +1,8 @@
 .GameTitle
 {
-	margin-top: 25px;
-	margin-bottom: 15px;
-	margin-left: 12px;
+	margin-top: 45px;
+	margin-bottom: 20px;
+	margin-left: 16px;
 	width: 230px;
 	horizontal-align: left;
 	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,Gulim,MingLiU;
@@ -12,7 +12,7 @@
 
 .CustomSettings
 {
-	width: fill-parent-flow( 1.0 );
+	width: fill-parent-flow(1);
 	/*height: fit-children;*/
 	/* horizontal-align: center; */
 	vertical-align: top;
@@ -24,13 +24,6 @@
 	/* box-shadow: inset #000000 0px 2px 6px 3px; */
 }
 
-#GNT_TP_UNITS_PANEL
-{
-	margin: 6px;
-	padding: 6px;
-	border-radius: 4px;
-	box-shadow: inset #00000070 0px 0px 6px 0px;
-}
 
 .SettingsTitle
 {
@@ -63,21 +56,14 @@
 
 .SettingsBody
 {
-	width: 100%;
+	width: 100%; /**** Panel SettingsBody has fill-parent-flow for width, but isn't in a flowing right layout*/
 	/*height: fit-children;*/ /*test*/
 	/* horizontal-align: right; */
 	/* vertical-align: top;   */
 	flow-children: down-wrap;
-	overflow: scroll squish;
-	margin-bottom: 80px;
-}
-
-.SettingsBodyInsideSideBar
-{
-	flow-children: down;
 	overflow: squish squish;
+	margin-bottom: 200px;
 }
-
 .ItemsBody {
 	width: 100%; /**** Panel SettingsBody has fill-parent-flow for width, but isn't in a flowing right layout*/
 	/*height: fit-children;*/ /*test*/
@@ -85,7 +71,7 @@
 	/* vertical-align: top;   */
 	flow-children: down;
 	overflow: scroll;
-	margin-bottom: 10px;
+	margin-bottom: 200px;
 
 }
 /*.SplitThree
@@ -97,19 +83,19 @@
 }*/
 
 .w-31 {
-	width: 170px;
+	width: 31%;
 }
 
 .SettingsGroup
 {
 	height: fit-children;
-	min-width: 270px;
+	min-width: 300px;
 	/* horizontal-align: right; */
 	/* vertical-align: top; */
 	flow-children: down;
-	margin: 8px 8px;
+	margin: 10px 10px;
 	background-color: #181a1e;
-	box-shadow: fill #000000 0px 2px 4px 2px;
+	box-shadow: #000000 0px 2px 6px 3px;
 	border-radius: 0px;
 }
 
@@ -118,94 +104,24 @@
 	box-shadow: #00AA0022 0px 2px 6px 3px;
 }
 
-.Horz
-{
-	width: 100%;
-	height: fit-children;
-}
-
-.Fill
-{
-	width: fill-parent-flow( 1.0 );
-}
-
-.Question
-{
-	horizontal-align: right;
-	vertical-align: center;
-	text-align: center;
-	border-radius: 8px;
-	height: 16px;
-	width: 16px;
-	background-color: #a0a0a0;
-	color: #2d2c3c;
-	font-size: 14px;
-	margin-right: 10px;
-	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,Gulim,MingLiU;
-	font-weight: bold;
-}
-
-.Question:hover
-{
-	background-color: #e0e0e0ff;
-	box-shadow: fill #e0e0e0ff 0px 0px 4px 0px;
-}
-
-.ModePanel
-{
-	background-color: #2d2c3c;
-}
-
-
-.ModePanel:disabled 
-{
-	background-color: #2a2a2d;
-}
 
 .SettingsGroupInsideSideBar
 {
 	width: 80%;
-	flow-children: down;
-	margin-bottom: 10px;
-}
-
-.SettingsGroupFull
-{
-	width: 100%;
-	height: fit-children;
-	flow-children: down;
 }
 
 .SettingsGroupTitle
 {
 	width: fit-children;
 	min-width: fit-children;
-	padding: 8px 8px 5px 8px;
+	padding: 10px 10px 5px 10px;
 	margin-bottom: 0px;
 	horizontal-align: left;
 	/* font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,Gulim,MingLiU; */
-	font-size: 18px;
+	font-size: 20px;
 	
 	color: #ffffff;
 	border-bottom: 1px solid rgba(255,255,255,0.2);
-}
-
-
-.SettingsGroupTitle:parentdisabled
-{
-	color: #8f8f8f;
-}
-
-.SettingsSubgroupTitle
-{
-	width: 80%;
-	height: fit-children;
-	padding: 8px 8px 5px 5px;
-	horizontal-align: left;
-	/* font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,Gulim,MingLiU; */
-	font-size: 16px;
-	
-	color: #ffffff;
 }
 
 .SettingsItem
@@ -214,11 +130,11 @@
 	min-width: 140px;
 	/*max-width: 100%;*/
 	/*padding: 0px 10px 0px 10px;*/
-	margin: 4px 4px;
+	margin: 5px 5px;
 	horizontal-align: left;
 	/* text-transform: none; */
 	/* font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,Gulim,MingLiU; */
-	font-size: 18px;
+	font-size: 20px;
 	color: #ffffff;
 }
 
@@ -232,10 +148,9 @@
 .TextEntryLabel
 {
 	width: fit-children;
-	margin-top: 11px;
-	margin-left: 6px;
+	margin-top: 13px;
 	/*margin-left: 0px;*/
-	font-size: 16px;
+	font-size: 20px;
 	text-overflow: ellipsis;
 	/*vertical-align: top;*/
 	horizontal-align: left;

@@ -41,7 +41,7 @@ function swapped_modifier:OnCreated( kv )
 		parent:GetTeamNumber(), 
 		parent:GetAbsOrigin(),
 		parent,
-		parent:Script_GetAttackRange() + 150,
+		parent:Script_GetAttackRange() + 250,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
 		DOTA_UNIT_TARGET_CREEP + DOTA_UNIT_TARGET_HERO,
 		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE,
@@ -57,8 +57,14 @@ function swapped_modifier:OnCreated( kv )
 	
 	if hitTarget ~= nil then
 		--print( "found a foe to hit" )
-		parent:MoveToTargetToAttack( hitTarget )
-		parent:PerformAttack( hitTarget, true, true, true, false, true, false, true )
+		
+		ExecuteOrderFromTable({
+			UnitIndex = parent:entindex(),
+			OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+			TargetIndex = hitTarget:entindex(),
+			Queue = false,
+		})
+
 	end
 	
 end

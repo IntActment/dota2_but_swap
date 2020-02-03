@@ -130,6 +130,10 @@ function onPanelChange(name) {
 		if (isNaN(val)){
 			val = 0;
 		}
+		else
+		{
+			val = val.toFixed(panel.GetAttributeInt("precision", 0));
+		}
 	}
 	if (undefined!==val) {
 		GameEvents.SendCustomGameEventToAllClients( "butt_setting_changed", {setting: name , value: val });
@@ -160,11 +164,14 @@ function updatePanel(kv) {
 				panel.checked = val;
 				break;
 			case ("TextEntry"===panelType):
-				panel.text = val + panel.GetAttributeString("unit","");
 				// $.Msg(panel.text);
-				if (parseFloat(val)!==parseFloat(panel.text)) {
-					panel.text = val;
-				}
+				val = parseFloat(val);
+				if (!isNaN(val))
+				{
+					val = val.toFixed(panel.GetAttributeInt("precision", 0));
+				}				
+				panel.text = val + panel.GetAttributeString("unit","");
+
 				break;
 			default:
 				break;
@@ -179,7 +186,15 @@ function onfocus(name) {
 	let panel = $("#"+name);
 	let panelType = panel.paneltype;
 	if ("TextEntry"===panelType){
-		panel.text = parseFloat(panel.text);
+		let val = parseFloat(panel.text);
+		if (isNaN(val)){
+			val = 0;
+		}
+		else
+		{
+			val = val.toFixed(panel.GetAttributeInt("precision", 0));
+		}
+		panel.text = val;
 	}
 	panel.SetAcceptsFocus(true);
 }

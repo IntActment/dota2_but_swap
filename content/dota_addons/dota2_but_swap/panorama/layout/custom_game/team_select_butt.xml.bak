@@ -12,7 +12,7 @@
 						<Label class="SettingsTitle" text="GAME SETTINGS"/>
 						<Label class="SettingsSubtitle" text="HOST" id="Host"/>
 						<!-- <Panel class="SplitThree"> -->
-						<Panel id="SettingsBody" class="SettingsBody" enabled="false" hittest="true">
+						<Panel id="SettingsBody" class="SettingsBody" enabled="false" hittest="false">
 								<Panel class="SettingsGroup w-31">
 										<Label class="SettingsGroupTitle" text="Gamemode"/>
 										<!-- <Label class="SettingsItem" text="Ban"/>
@@ -93,9 +93,6 @@
 																	onactivate="onPanelChange('NO_UPHILL_MISS')"/>
 										<ToggleButton id="TOMBSTONE" class="SettingsItem" text="Revival Tombstone"
 																	onactivate="onPanelChange('TOMBSTONE')"/>
-									</Panel>
-									<Panel class="SettingsGroup w-31">
-										<Label class="SettingsGroupTitle" text="Butt Exclusive"/>
 										<Panel class="SettingsItem TextEntryFrame">
 												<TextEntry onfocus="onfocus('XP_PER_MINUTE')" oninputsubmit="onPanelChange('XP_PER_MINUTE')"
 																	 onblur="onPanelChange('XP_PER_MINUTE')" id="XP_PER_MINUTE" class="SettingsItem"
@@ -167,23 +164,6 @@
 												<Label text="Cooldown" class="TextEntryLabel"/>
 										</Panel>
 								</Panel>
-								
-								<Panel class="SettingsGroup w-31 ModePanel">
-									<Label class="SettingsGroupTitle" text="Mode tweaks"/>
-									<Panel class="SettingsItem TextEntryFrame">
-												<TextEntry onfocus="onfocus('SWAP_PROC_LIMIT')" oninputsubmit="onPanelChange('SWAP_PROC_LIMIT')"
-																	 onblur="onPanelChange('SWAP_PROC_LIMIT')" id="SWAP_PROC_LIMIT" class="SettingsItem"
-																	 maxchars="3" unit="%" precision="0"/>
-												<Label text="Swap proc chance grow max" class="TextEntryLabel"/>
-										</Panel>
-										<Panel class="SettingsItem TextEntryFrame">
-												<TextEntry onfocus="onfocus('SWAP_PROC_GROW')" oninputsubmit="onPanelChange('SWAP_PROC_GROW')"
-																	 onblur="onPanelChange('SWAP_PROC_GROW')" id="SWAP_PROC_GROW" class="SettingsItem"
-																	 unit="%" precision="2"/>
-												<Label text="Swap chance grow per proc" class="TextEntryLabel"/>
-										</Panel>
-								</Panel>
-								
 								<Panel class="SettingsGroup w-31">
 										<!-- <Button id="CHEAT_QUICK" class="SettingsItem ButtonBevel" onactivate="onPanelChange('CHEAT_QUICK')"><Label text="Quick Start" /></Button> -->
 										<Button id="RESET" class="SettingsItem ButtonBevel" onactivate="onPanelChange('RESET')">
